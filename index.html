@@ -35,7 +35,7 @@
     }
 
     media-controller[mediastreamtype='live'] media-live-button {
-      display: block;
+      display: flex;
     }
 
     media-controller[mediastreamtype='live'] .spacer {
@@ -55,8 +55,7 @@
 
 <body>
   <media-controller noautoseektolive defaultstreamtype="live" liveedgeoffset="30">
-    <mpegts-video slot="media" muted autoplay src="http://81.94.196.204/tsstreamer/France24_HD.ts" preload="metadata"
-      defer></mpegts-video>
+    <mpegts-video slot="media" muted autoplay src="http://81.94.196.204/tsstreamer/France24_HD.ts" defer></mpegts-video>
 
     <media-loading-indicator slot="centered-chrome" noautohide></media-loading-indicator>
 
@@ -82,13 +81,6 @@
         lazyLoadMaxDuration: 3 * 60,
         enableWorker: true,
         reuseRedirectedURL: true,
-      };
-
-      //set a custom mpegts logging config
-      video.mpegtsLoggingConfig = {
-        forceGlobalTag: true,
-        globalTag: 'mpegts-video-element',
-        enableVerbose: true,
       };
 
       // then load the player
